@@ -8,7 +8,10 @@ See the [clara-rules project](https://github.com/rbrush/clara-rules) for details
 Users may explore the contents of Clara sessions with the _clara.tools.watch_ namespace. Rather than using ```clara.rules/mk-session```, users can create an instrumented "watched" session with ```clara.tools.watch/mk-wached-session```, which accepts the same arguments. Here is an example in use:
 
 ```clj
-(require '[clara.tools.watch :as w])
+(require '[clara.tools.watch :as w]
+         '[clara.rules :refer :all]
+         '[clara.tools.examples.shopping :refer :all]
+         '[clara.tools.examples.shopping.records :refer :all])
 
 ;; Create a watched session and insert some facts.
 (def my-session (-> (w/mk-watched-session "My Watched Session."
